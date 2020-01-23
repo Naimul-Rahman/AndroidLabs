@@ -3,4 +3,13 @@
     <string name="app_name">Lab 1</string>
     <string name="hello_message">Konnichiwa! Watashi wa Naimul dessu!</string>
     <string name="button_text">Watashi wa baka</string>
+    <string name="toast_message">Shōsai wa kochira</string>
+    <string name="snackbar_message">Switch</string>
+    <string name="edit_message">Koko ni nyūryoku</string>
+    <string name="gui">GUI o mitekudasai</string>
+    <string name="clickHere">Kokowokurikku</string>
+    <string name="checkOut">Kore o chekkushitekudasai!</string>
+    <string name="switch_message">Suitchi no on/ ofu</string>
+    <string name="undo">Motonimodosu</string>
+
 </resources>

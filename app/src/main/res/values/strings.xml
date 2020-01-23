@@ -2,4 +2,12 @@
     <string name="app_name">Lab 1</string>
     <string name="hello_message">Hello World!</string>
     <string name="button_text">Sup</string>
+    <string name="toast_message">Here is more information</string>
+    <string name="snackbar_message">The switch is</string>
+    <string name="edit_message">Type here</string>
+    <string name="gui">Look at my GUI</string>
+    <string name="clickHere">Click Here</string>
+    <string name="checkOut">Check this out!</string>
+    <string name="switch_message">Switch on/off</string>
+    <string name="undo">Undo</string>
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gui"
+        android:textSize="30dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:text="@string/clickHere"
+        android:id="@+id/button"
+        android:layout_below="@+id/textView"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="@string/checkOut"
+        android:id="@+id/checkbox"
+        android:layout_toRightOf="@+id/button"
+        android:layout_below="@+id/textView"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flag"
+        android:layout_below="@+id/button"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="@string/switch_message"
+        android:id="@+id/onOff"
+        android:layout_toRightOf="@+id/imageButton"
+        android:layout_below="@+id/checkbox"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_message"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/imageButton"/>
+
+</RelativeLayout>
