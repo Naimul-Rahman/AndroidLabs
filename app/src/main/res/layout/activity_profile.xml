@@ -10,33 +10,33 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Profile"/>
+        android:text="@string/yourProfile"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Name:"/>
+        android:text="@string/yourName"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your name"/>
+        android:hint="@string/enterName"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your email:"/>
+        android:text="@string/yourEmail"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your email"
+        android:hint="@string/enterEmail"
         android:id="@+id/emailProfile"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your picture:"/>
+        android:text="@string/yourPicture"/>
 
     <ImageButton
         android:layout_width="match_parent"
@@ -47,12 +47,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Click the button above to take a picture"/>
+        android:text="@string/clickPic"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/toChat"
-        android:text="Go to chat"/>
+        android:text="@string/toChat"/>
 
 </LinearLayout>

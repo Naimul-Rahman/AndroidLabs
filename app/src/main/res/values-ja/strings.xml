@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab 1</string>
+    <string name="app_name">Lab 4</string>
     <string name="hello_message">Konnichiwa! Watashi wa Naimul dessu!</string>
     <string name="button_text">Watashi wa baka</string>
     <string name="toast_message">Shōsai wa kochira</string>
@@ -13,5 +13,13 @@
     <string name="undo">Motonimodosu</string>
     <string name="send">Okuru</string>
     <string name="receive">Uketoru</string>
+    <string name="toChat">Chatto suru</string>
+    <string name="yourProfile">Anata no purofīru</string>
+    <string name="yourName">Anata no namae</string>
+    <string name="yourEmail">Anata no mēru</string>
+    <string name="yourPicture">Anata no gazō</string>
+    <string name="clickPic">Kurikku shite shashinwotoru</string>
+    <string name="enterName">Namae o nyūryoku</string>
+    <string name="enterEmail">Mēruadoresu o nyūryoku</string>
 
 </resources>
