@@ -1,5 +1,6 @@
 package com.example.androidlabs;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,8 +8,10 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -19,7 +22,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
         ImageButton imageButton = findViewById(R.id.takePicture);
+        Button chatButton = findViewById(R.id.toChat);
 
         imageButton.setOnClickListener((v) -> {dispatchTakePictureIntent();});
         Intent fromMain = getIntent();
@@ -27,6 +32,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         EditText editText = findViewById(R.id.emailProfile);
         editText.setText(fromMain.getStringExtra("EMAIL"));
+
+        chatButton.setOnClickListener((v) -> {Intent goToChat = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+            startActivity(goToChat);});
+
+
+
+
+
 
     }
 
@@ -78,4 +91,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onDestroy();
         Log.e(ACTIVITY_NAME, "In function:" + " onDestroy()");
     }
+
+
 }

@@ -49,4 +49,10 @@
         android:layout_height="wrap_content"
         android:text="Click the button above to take a picture"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toChat"
+        android:text="Go to chat"/>
+
 </LinearLayout>
