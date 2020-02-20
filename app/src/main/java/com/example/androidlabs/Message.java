@@ -6,10 +6,14 @@ public class Message extends AppCompatActivity {
 
     private String message;
     private boolean send;
+    private long id;
 
-    public Message(String message, boolean send){
+    public Message(String message, boolean send){this(message, send, 0);}
+
+    public Message(String message, boolean send, long id){
         setMessage(message);
         setSend(send);
+        setId(id);
     }
 
 
@@ -28,6 +32,10 @@ public class Message extends AppCompatActivity {
     public boolean getSend(){
         return this.send;
     }
+
+    public void setId(long id){this.id = id;}
+
+    public long getId(){ return this.id;}
 
 
 }
