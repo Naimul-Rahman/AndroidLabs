@@ -25,6 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         ImageButton imageButton = findViewById(R.id.takePicture);
         Button chatButton = findViewById(R.id.toChat);
+        Button weatherButton = findViewById(R.id.toWeather);
 
         imageButton.setOnClickListener((v) -> {dispatchTakePictureIntent();});
         Intent fromMain = getIntent();
@@ -35,6 +36,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         chatButton.setOnClickListener((v) -> {Intent goToChat = new Intent(ProfileActivity.this, ChatRoomActivity.class);
             startActivity(goToChat);});
+
+        weatherButton.setOnClickListener((v) -> {Intent goToWeather = new Intent(ProfileActivity.this, WeatherForecast.class);
+            startActivity(goToWeather);});
 
 
 

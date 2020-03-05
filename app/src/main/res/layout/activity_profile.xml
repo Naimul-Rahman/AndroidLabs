@@ -55,4 +55,10 @@
         android:id="@+id/toChat"
         android:text="@string/toChat"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toWeather"
+        android:text="Weather Forecast" />
+
 </LinearLayout>
