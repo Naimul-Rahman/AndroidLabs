@@ -122,15 +122,7 @@ public class WeatherForecast extends AppCompatActivity {
 
 
 
-                if (responseCode == 200) {
-                    image = BitmapFactory.decodeStream(connection.getInputStream());
-                    publishProgress(100);
 
-                    FileOutputStream outputStream = openFileOutput( iconName + ".png", Context.MODE_PRIVATE); // starting from here, normally outside if
-                    image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
-                    outputStream.flush();
-                    outputStream.close();
-                }
 
 
 
@@ -139,9 +131,21 @@ public class WeatherForecast extends AppCompatActivity {
                     try {    fis = openFileInput(iconName + ".png");
                         Log.i("Image found", "Image found :)");}
                     catch (FileNotFoundException e) {    e.printStackTrace();  }
-                    Bitmap bm = BitmapFactory.decodeStream(fis);
+                    image = BitmapFactory.decodeStream(fis);
                     Log.i("Image not found:", "Image not found :(");
 
+                }
+
+                else{
+                    if (responseCode == 200) {
+                        image = BitmapFactory.decodeStream(connection.getInputStream());
+                        publishProgress(100);
+
+                        FileOutputStream outputStream = openFileOutput( iconName + ".png", Context.MODE_PRIVATE); // starting from here, normally outside if
+                        image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
+                        outputStream.flush();
+                        outputStream.close();
+                    }
                 }
                 //JSON reading:
                 //Build the entire string response:
