@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +25,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enterName"/>
+        android:hint="@string/enterName"
+        android:id="@+id/enterName"
+        android:nextFocusDown="@id/emailProfile"
+        android:nextFocusUp="@id/toWeather"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enterEmail"
-        android:id="@+id/emailProfile"/>
+        android:id="@+id/emailProfile"
+        android:nextFocusDown="@id/takePicture"
+        android:nextFocusUp="@id/enterName"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +52,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@android:drawable/picture_frame"
-        android:id="@+id/takePicture"/>
+        android:id="@+id/takePicture"
+        android:nextFocusUp="@id/emailProfile"
+        android:nextFocusDown="@id/toChat"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,7 +65,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/toChat"
-        android:text="@string/toChat"/>
+        android:text="@string/toChat"
+        android:nextFocusDown="@id/toWeather"
+        android:nextFocusUp="@id/takePicture"/>
 
     <Button
         android:layout_width="wrap_content"

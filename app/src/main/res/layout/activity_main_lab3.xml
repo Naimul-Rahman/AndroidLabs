@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,7 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type email here"
-        android:id="@+id/emailAddress"/>
+        android:id="@+id/emailAddress"
+        android:nextFocusDown="@id/password"
+        android:nextFocusUp="@id/button"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,12 +31,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        android:hint="Password"/>
+        android:hint="Password"
+        android:id="@+id/password"
+        android:nextFocusDown="@id/button"
+        android:nextFocusUp="@id/emailAddress"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LOGIN"
-        android:id="@+id/button"/>
+        android:id="@+id/button"
+        android:nextFocusUp="@id/password"
+        android:nextFocusDown="@id/emailAddress"/>
 
 </LinearLayout>
