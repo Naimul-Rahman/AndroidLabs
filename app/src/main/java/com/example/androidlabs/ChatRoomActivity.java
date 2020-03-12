@@ -4,8 +4,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,16 +16,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ChatRoomActivity extends AppCompatActivity {
+public class ChatRoomActivity extends AppCompatActivity implements DetailsFragment.OnFragmentInteractionListener {
 
     private ArrayList<Message> list = new ArrayList<Message>();
     SQLiteDatabase db;
@@ -38,6 +37,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         Button send = findViewById(R.id.sendButton);
         Button receive = findViewById(R.id.receiveButton);
         EditText messageText = findViewById(R.id.sendMessage);
+        boolean isTablet = findViewById(R.id.frameLayout) != null;
 
         loadDataFromDataBase();
         MyListAdapter adapter = new MyListAdapter();
@@ -72,6 +72,29 @@ public class ChatRoomActivity extends AppCompatActivity {
             alertDialog.setNegativeButton("No", (click, arg) -> {});
             alertDialog.create().show();
             return true;
+        });
+
+        chat.setOnItemClickListener((list, view, position, id) -> {
+
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString("Message", this.list.get(position).getMessage());
+            dataToPass.putBoolean("Is sent?", this.list.get(position).getSend());
+            dataToPass.putLong("ID", id);
+
+            if(isTablet){
+                //FragmentManager fm = getFragmentManager().beginTransaction().replace(R.id.frameLayout, new Fragment()).commit();
+                //FragmentManager fm = getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new DetailsFragment()).commit();
+                DetailsFragment detailsFragment = new DetailsFragment();
+                detailsFragment.setArguments(dataToPass);
+                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, detailsFragment).commit();
+            }
+
+            else{
+                Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                nextActivity.putExtras(dataToPass);
+                startActivity(nextActivity);
+
+            }
         });
     }
 
@@ -141,6 +164,11 @@ public class ChatRoomActivity extends AppCompatActivity {
             Log.e("IsSent", sent + "");
             //Log.e(String.format("_id: %s%s Message: %s%s IsSent: %s"), id + " " + message + " " + sent);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
 
