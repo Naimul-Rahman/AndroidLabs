@@ -26,6 +26,7 @@ public class ChatRoomActivity extends AppCompatActivity implements DetailsFragme
 
     private ArrayList<Message> list = new ArrayList<Message>();
     SQLiteDatabase db;
+    DetailsFragment detailsFragment;
 
 
     @Override
@@ -68,7 +69,9 @@ public class ChatRoomActivity extends AppCompatActivity implements DetailsFragme
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
             alertDialog.setTitle("Do you want to delete this?");
             alertDialog.setMessage("The selected row is: " + position + "\nThe database id: " + id);
-            alertDialog.setPositiveButton("Yes", (click, arg) -> {deleteMessage(selectedMessage); list.remove(position); adapter.notifyDataSetChanged();});
+            //alertDialog.setPositiveButton("Yes", (click, arg) -> {deleteMessage(selectedMessage); list.remove(position); adapter.notifyDataSetChanged();});
+            alertDialog.setPositiveButton("Yes", (click, arg) -> {deleteMessage(selectedMessage); list.remove(position);
+                getSupportFragmentManager().beginTransaction().remove(detailsFragment).commit(); adapter.notifyDataSetChanged();});
             alertDialog.setNegativeButton("No", (click, arg) -> {});
             alertDialog.create().show();
             return true;
@@ -82,9 +85,9 @@ public class ChatRoomActivity extends AppCompatActivity implements DetailsFragme
             dataToPass.putLong("ID", id);
 
             if(isTablet){
-                //FragmentManager fm = getFragmentManager().beginTransaction().replace(R.id.frameLayout, new Fragment()).commit();
-                //FragmentManager fm = getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new DetailsFragment()).commit();
-                DetailsFragment detailsFragment = new DetailsFragment();
+
+                //DetailsFragment detailsFragment = new DetailsFragment();
+                detailsFragment = new DetailsFragment();
                 detailsFragment.setArguments(dataToPass);
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, detailsFragment).commit();
             }
