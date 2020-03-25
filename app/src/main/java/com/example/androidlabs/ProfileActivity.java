@@ -26,6 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
         ImageButton imageButton = findViewById(R.id.takePicture);
         Button chatButton = findViewById(R.id.toChat);
         Button weatherButton = findViewById(R.id.toWeather);
+        Button toToolBar = findViewById(R.id.toToolbar);
 
         imageButton.setOnClickListener((v) -> {dispatchTakePictureIntent();});
         Intent fromMain = getIntent();
@@ -40,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         weatherButton.setOnClickListener((v) -> {Intent goToWeather = new Intent(ProfileActivity.this, WeatherForecast.class);
             startActivity(goToWeather);});
 
-
+        toToolBar.setOnClickListener((v) -> {startActivityForResult(new Intent(ProfileActivity.this, TestToolbar.class), 56);});
 
 
 
@@ -58,11 +59,17 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data); // complained so I added it
+
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ImageButton imageButton = findViewById(R.id.takePicture);
             imageButton.setImageBitmap(imageBitmap);
+        }
+        if (requestCode == 56 && resultCode == 500) { // added for toolbar lab
+            finish();
         }
     }
 
@@ -95,6 +102,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onDestroy();
         Log.e(ACTIVITY_NAME, "In function:" + " onDestroy()");
     }
+
+
 
 
 }
